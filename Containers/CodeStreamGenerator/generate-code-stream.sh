@@ -3,6 +3,14 @@
 createFileList() {
   echo "Creating initial list of files..."
   find /QualitasCorpus/QualitasCorpus-20130901r/Systems -type f -name "*.java" | sort -R > ~/files.txt
+
+  # Count the number of lines (files) in the generated file list
+  file_count=$(wc -l < ~/files.txt)
+
+  # Extract just the number (wc -l output includes the filename)
+  file_count=${file_count%% *}
+
+  echo "Found and will process $file_count Java files."
 }
 
 sendFile() {
@@ -18,7 +26,7 @@ fi
 
 echo "Stream-of-Code generator."
 echo "Delay (seconds) between each file is:" $DELAY
-echo "files are sent to                   :" $TARGET
+echo "Files are sent to:" $TARGET
 
 echo "Waiting 5 seconds to give consumer time to get started..."
 sleep 5
