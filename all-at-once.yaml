@@ -1,9 +1,8 @@
 # Docker Compose for All-At-Once Code Clone Detection
 
-version: "3.8"
 services:
   clone-detector:
-    image: cljdetector
+    image: dochaider/cljdetector:cljdetector
     command: clear 
     ports:
       - 8080:3000
@@ -34,4 +33,3 @@ volumes:
   dbconfig:
   qc-volume:
     external: true
-    
