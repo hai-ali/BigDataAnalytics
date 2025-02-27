@@ -16,9 +16,10 @@ printf "\n........ cloneDetector Information ........\n\n"
 
 while true; do # Run indefinitely
 
-  printf "\n........ (Time: $(date +'%Y-%m-%d %H:%M:%S')) ........\n\n"
+  printf "\n........ $(date +'%Y-%m-%d %H:%M:%S') ........\n\n"
   mongo_output=$(docker exec -it bigdataanalyticsha-dbstorage-1 mongosh /tmp/mongo_commands.js)
   printf "$mongo_output\n"
+  sleep 10
 
 done
 

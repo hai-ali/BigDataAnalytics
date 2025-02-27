@@ -27,7 +27,14 @@ services:
     volumes:
       - dbstorage:/data/db
       - dbconfig:/data/configdb
-    
+
+  monitortool:
+    build: . # Build from the Dockerfile in the current directory
+    depends_on:
+      - dbstorage # Ensure dbstorage is running first
+    environment:
+      - DBHOST=dbstorage
+
 volumes:
   dbstorage:
   dbconfig:

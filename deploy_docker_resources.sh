@@ -5,22 +5,15 @@ printf "....... Script started .......\n"
 printf "....... Cleaning things up .......\n"
 
 #Cleanup:
-
 docker-compose -f all-at-once.yaml down
 
-sleep 10 #making sure all are deleted before recreating
+sleep 10 #just waiting
 
 #Orchestration & Deployment:
 cd /Users/haider.aligjensidige.se/Documents/GitHub/BigDataAnalyticsHA
 
 # make the shell script executable
 chmod +x deploy_docker_resources.sh
-
-#Secrets:
-printf "....... Creating secrets .......\n"
-
-#Database service:
-printf "\n....... MongoDB service .......\n"
 
 printf "\n....... Deploying Product service .......\n"
 
